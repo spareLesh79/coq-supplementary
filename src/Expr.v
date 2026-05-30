@@ -701,9 +701,6 @@ Module StaticSemantics.
   Lemma type_preservation e t t' (HS: t' << t) (HT: e :-: t) : forall st e' (HR: st |- e ~~> e'), e' :-: t'.
   Proof. Admitted.
 
-  (* The statement above is in general not provable: an Int-typed expression
-     such as (Nat 2) does not have type Bool, but the subtype relation allows
-     Bool << Int, so we would have to coerce (Nat 2) to Bool, which fails. *)
   Lemma type_preservation_contra :
     not (forall e t t' st e', t' << t -> e :-: t -> st |- e ~~> e' -> e' :-: t').
   Proof.
